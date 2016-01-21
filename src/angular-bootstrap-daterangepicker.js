@@ -46,7 +46,7 @@ angular.module('angular-bootstrap-daterangepicker', []).directive('input', funct
             });
 
             $scope.$on('daterangepicker.rangeschange', function () {
-                options.ranges = $scope.ranges;
+                options.ranges = $attributes.ranges && $parse($attributes.ranges)($scope);
                 $element.data('daterangepicker').setOptions(options);
             });
 
